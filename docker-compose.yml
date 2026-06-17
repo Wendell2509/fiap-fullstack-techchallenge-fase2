@@ -6,3 +6,20 @@ services:
       - "3000:3000"
     env_file:
       - .env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: fiap-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: fiap_blog
+      POSTGRES_USER: fiap_user
+      POSTGRES_PASSWORD: fiap_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
