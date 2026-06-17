@@ -10,7 +10,7 @@ Este projeto faz parte do Tech Challenge da Fase 2 da FIAP Pos-Tech. A proposta 
 
 - Node.js
 - Express
-- Banco de dados SQL ou NoSQL
+- Banco de dados Postgres
 - Docker
 - GitHub Actions
 - Testes automatizados
@@ -18,3 +18,12 @@ Este projeto faz parte do Tech Challenge da Fase 2 da FIAP Pos-Tech. A proposta 
 ## Status
 
 Projeto em configuracao inicial.
+
+## 16/06
+- Ambiente limpo validado com docker compose up --build.
+- Rotas testadas:
+    - GET /health
+    - GET /database/health
+- Containers:
+    - fiap-api
+    - fiap-db
