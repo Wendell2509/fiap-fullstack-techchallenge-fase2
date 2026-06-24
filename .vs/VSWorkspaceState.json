@@ -7,6 +7,6 @@
     "\\src\\repositories",
     "\\src\\routes"
   ],
-  "SelectedNode": "\\docker-compose.yml",
+  "SelectedNode": "\\src\\routes\\postRoutes.js",
   "PreviewInSolutionExplorer": false
 }

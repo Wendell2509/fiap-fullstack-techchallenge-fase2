@@ -1,4 +1,5 @@
 const postRepository = require('../repositories/postRepository');
+//const { searchPosts } = require('../repositories/postRepository');
 
 class PostController {
     //POST
@@ -27,6 +28,23 @@ class PostController {
         }
     }
 
+    //GET BY KEY-WORD
+    async search(req, res) {
+        const { term } = req.query;
+
+        if (!term) {
+            return res.status(400).json({ error: "O termo de busca é obrigatório." });
+        }
+
+        try {
+            const posts = await postRepository.searchPosts(term);
+            res.json(posts);
+        } catch (error) {
+            console.error("Erro ao buscar posts:", error);
+            res.status(500).json({ error: error.message, stack: error.stack });
+        }
+    }
+
     // GET by ID
     async getById(req, res) {
         try {
@@ -37,6 +55,8 @@ class PostController {
             return res.status(500).json({ error: 'Erro ao buscar post.' });
         }
     }
+
+    
 
     // PUT 
     async update(req, res) {

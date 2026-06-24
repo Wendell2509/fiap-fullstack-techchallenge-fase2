@@ -23,6 +23,22 @@ class PostRepository {
         return rows;
     }
 
+    //METODO PARA BUSCAR POR PALAVRA-CHAVE
+    async searchPosts(term) {
+        // ILIKE para busca case-insensitive
+        const query = `
+        SELECT * FROM posts 
+        WHERE title ILIKE $1 OR content ILIKE $1
+        ORDER BY "createdAt" DESC;
+      `;
+        // O % permite buscar o termo no início, meio ou fim da string
+        const searchTerm = `%${term}%`;
+        const result = await pool.query(query, [searchTerm]);
+        return result.rows;
+    }
+
+    
+
     //METODO DE BUSCA POR ID UNICO
     async findById(id) {
         const queryText = 'SELECT * FROM posts WHERE id = $1';
