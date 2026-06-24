@@ -28,7 +28,7 @@ Projeto em configuracao inicial.
     - fiap-api
     - fiap-db
 
-#24/06
+##24/06
 - Criação tabela de POST
 - CRUD completo (Post, Get, GetById, Put, Delete)
 - Teste usando Postman
