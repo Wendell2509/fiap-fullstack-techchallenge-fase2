@@ -7,6 +7,6 @@
     "\\src\\repositories",
     "\\src\\routes"
   ],
-  "SelectedNode": "\\src\\routes\\postRoutes.js",
+  "SelectedNode": "\\.env.example",
   "PreviewInSolutionExplorer": false
 }

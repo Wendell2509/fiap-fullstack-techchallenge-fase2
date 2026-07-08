@@ -1,15 +1,19 @@
 services:
-  app:
+  fiap-api:
     build: .
     container_name: fiap-api
     ports:
       - "3000:3000"
-    env_file:
-      - .env
     depends_on:
-      - db
+      - fiap-db
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=fiap-db
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
 
-  db:
+  fiap-db:
     image: postgres:16-alpine
     container_name: fiap-db
     ports:
